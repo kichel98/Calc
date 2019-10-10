@@ -1,0 +1,105 @@
+openapi: '3.0.2'
+info:
+  title: Calc API
+  version: '1.0'
+paths:
+  /add/{arg1}/{arg2}:
+    get:
+      parameters:
+      - name: arg1
+        in: path
+        required: true
+        schema:
+          type: number
+        description: First element
+      - name: arg2
+        in: path
+        required: true
+        schema:
+          type: number
+        description: Second element
+      responses:
+        '200':
+          description: Return value of add
+          content:
+            application/json:
+              schema: 
+                type: number
+                example: 24
+  /substract/{arg1}/{arg2}:
+    get:
+      parameters:
+      - name: arg1
+        in: path
+        required: true
+        schema:
+          type: number
+        description: Minuend
+      - name: arg2
+        in: path
+        required: true
+        schema:
+          type: number
+        description: Subtrahend
+      responses:
+        '200':
+          description: Return value of substract
+          content:
+            application/json:
+              schema: 
+                type: number
+                example: -5.5
+  /multiply/{arg1}/{arg2}:
+    get:
+      parameters:
+      - name: arg1
+        in: path
+        required: true
+        schema:
+          type: number
+        description: First factor
+      - name: arg2
+        in: path
+        required: true
+        schema:
+          type: number
+        description: Second factor
+      responses:
+        '200':
+          description: Return value of multiply
+          content:
+            application/json:
+              schema: 
+                type: number
+                example: 27
+  /divide/{arg1}/{arg2}:
+    get:
+      parameters:
+      - name: arg1
+        in: path
+        required: true
+        schema:
+          type: number
+        description: Dividend
+      - name: arg2
+        in: path
+        required: true
+        schema:
+          type: number
+        description: Divisor
+      responses:
+        '200':
+          description: Return value of divide
+          content:
+            application/json:
+              schema: 
+                type: number
+                example: 3.2
+        '403':
+          description: Division is not possible
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "You cannot divide by zero!"
+                
